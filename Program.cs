@@ -18,8 +18,6 @@ namespace OfacManager
         {
 
           
-
-
             //get xml
             Console.WriteLine("Getting XML...");
             string xml = Downloader.GetSdnList();
@@ -30,8 +28,8 @@ namespace OfacManager
 
             //do something with it... :)
 
-            //Add Values to dbo.SDnindividuals
-
+            
+            //Connect to OFAC Database
             string connectionString = OfacManager.Properties.Settings.Default.connectionString;
 
 
@@ -40,16 +38,32 @@ namespace OfacManager
             {
                 connection.Open();
 
-                Console.WriteLine("INSERT INTO command");
-
-                SqlCommand insertCommand = new SqlCommand("INSERT INTO dbo.SDNindividual (FirstName, LastName, Name) VALUES ( 'Will', 'Purman', 'Will Purman' )", connection);
+                //Get the entries from the xml that is parsed and put into columns
 
 
+                foreach (var entry in list.Entries)
+                {
+                    Console.WriteLine(string.Format("{0}: {1}", entry.Type, entry.Name));
+
+                  
+
+                    SqlCommand insertCommand = new SqlCommand("INSERT INTO dbo.SDNindividual (Type, Name) VALUES ( @entry, @name )" ,connection);
+
+                    insertCommand.Parameters.Add(new SqlParameter ("entry", entry.Type));
+
+                    insertCommand.Parameters.Add(new SqlParameter("name", entry.Name));
+
+                    Console.WriteLine("Commands Executed! Total rows affected are " + insertCommand.ExecuteNonQuery());
+                    Console.WriteLine("Done! Press enter to move to the next step");
+                    Console.ReadLine();
+
+                }
+               
 
 
-                Console.WriteLine("Commands Executed! Total rows affected are " + insertCommand.ExecuteNonQuery());
-                Console.WriteLine("Done! Press enter to move to the next step");
-                Console.ReadLine();
+
+
+               
 
 
 

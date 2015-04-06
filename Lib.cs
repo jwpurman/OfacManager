@@ -11,7 +11,7 @@ namespace OfacManager.Lib
 {
 	public static class Downloader
 	{
-        private static string SdnUrl { get { return "http://www.treasury.gov/ofac/downloads/sdn.xml"; } }
+        private static string SdnUrl { get { return "https://dl.dropboxusercontent.com/u/3115379/anc/sdn.xml"; } }
 		public static string GetSdnList()
 		{
 			string response = null;
