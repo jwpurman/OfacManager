@@ -1,0 +1,6 @@
+C:\Users\will\Documents\GitHub\OfacManager\bin\Debug\OfacManager.exe
+C:\Users\will\Documents\GitHub\OfacManager\bin\Debug\OfacManager.pdb
+C:\Users\will\Documents\GitHub\OfacManager\obj\Debug\OfacManager.csprojResolveAssemblyReference.cache
+C:\Users\will\Documents\GitHub\OfacManager\obj\Debug\OfacManager.exe
+C:\Users\will\Documents\GitHub\OfacManager\obj\Debug\OfacManager.pdb
+C:\Users\will\Documents\GitHub\OfacManager\bin\Debug\OfacManager.exe.config
